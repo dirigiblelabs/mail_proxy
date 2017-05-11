@@ -36,10 +36,8 @@ function handlePostRequest(httpRequest, httpResponse) {
 	var to = sendMailRequest.to;
 	var subject = sendMailRequest.subject;
 	var content = sendMailRequest.content;
-	var type = sendMailRequest.type;
-
 	try {
-		mail.send(from, to, subject, content, type);
+		mail.send(from, to, subject, content);
 		sendResponse(httpResponse, httpResponse.ACCEPTED);
 	} catch (e) {
 		sendResponse(httpResponse, httpResponse.BAD_REQUEST, 'application/json', JSON.stringify({
